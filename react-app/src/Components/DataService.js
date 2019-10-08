@@ -1,19 +1,19 @@
 import React from 'react'
 import socket from 'socket.io'
 
-fucntion UpdateVote() {
+function UpdateVote() {
     return(
     
     );
 }
 
-fucntion ClearVote() {
+function ClearVote() {
     return(
     
     );
 }
 
-fucntion Username() {
+function Username() {
     return(
     
     );

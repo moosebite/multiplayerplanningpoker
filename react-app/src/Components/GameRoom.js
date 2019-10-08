@@ -1,5 +1,5 @@
 import React from 'react'
-import './GameRoom.css'
+import '../Styles/GameRoom.css'
 
 function GameRoom() {
     return(
@@ -15,18 +15,7 @@ function GameRoom() {
             <p2>
                 (Usernames go here.)
             </p2>
-            <body className='body1'>
-                <button className="myButton" id="0">0</button>
-                <button className="myButton" id="1">1</button>
-                <button className="myButton" id="2">2</button>
-                <button className="myButton" id="3">3</button>
-                <button className="myButton" id="5">5</button>
-                <button className="myButton" id="8">8</button>
-                <button className="myButton" id="13">13</button>
-                <button className="myButton" id="21">21</button>
-                <button className="myButton" id="?">?</button>
-                <br />
-            </body>
+            <GameRoom />
         </div>
     );
 }
