@@ -1,20 +1,18 @@
 import React from 'react'
 import '../Styles/GameRoom.css'
+import GameRoom from './GameRoom'
+import UsernameList from './UsernameList'
+import StoryDescription from './StoryDescription'
+import StoryTitle from './StoryTitle'
+
 
 function GameRoom() {
     return(
         <div>
-            <h1>
-                Hello Jokers' Wild! (Story Title goes here)
-            </h1>
-            <p1>
-                This is a test of the game room. <br />
-                The story description will go here.
-            </p1>
+            <StoryTitle />
+            <StoryDescription />
             <br />
-            <p2>
-                (Usernames go here.)
-            </p2>
+            <UsernameList />
             <GameRoom />
         </div>
     );
