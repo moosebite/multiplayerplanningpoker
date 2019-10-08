@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
-import './App.css'
+import './Styles/App.css'
 import GameRoom from './GameRoom'
 import './GameRoom.css'
 import LoginPage from './LoginPage'
