@@ -6,3 +6,6 @@
 * This branch has been copied from development, but will be updated later (as of 10/9 at 1:51 PM) to hold my copy of the code
 
 * Be sure to install bootstrap using 'npm i bootstrap'
+
+
+Note: My source code for the list rendering has been combined with Taylor's Login Page components
