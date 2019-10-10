@@ -22,4 +22,4 @@ function updateUserList(callback) {
 
 }
 
-export { UpdateVote, ClearVote, Username, UpdateUserList }
+export { updateVote, clearVote, username, updateUserList }
