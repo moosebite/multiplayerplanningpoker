@@ -12,4 +12,4 @@ function username() {
     return null
 }
 
-export default DataService
+export default {updateVote, clearVote, username}
