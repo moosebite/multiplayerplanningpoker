@@ -6,6 +6,7 @@ class UsernameList extends React.Component {
         return(
             <p2>
                 (Usernames go here.)
+                <img src='../Logos/no_vote_in.gif' alt='loading...'/>
             </p2>
         )
     }
