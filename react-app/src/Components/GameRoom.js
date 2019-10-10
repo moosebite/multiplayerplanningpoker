@@ -1,6 +1,5 @@
 import React from 'react'
 import '../Styles/GameRoom.css'
-import GameRoom from './GameRoom'
 import UsernameList from './UsernameList'
 import StoryDescription from './StoryDescription'
 import StoryTitle from './StoryTitle'

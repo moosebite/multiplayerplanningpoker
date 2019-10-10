@@ -5,6 +5,7 @@ function UsernameList() {
     return(
         <p2>
             (Usernames go here.)
+            <img src='../../public/no_vote_in.gif' alt='Waiting for your vote...' />
         </p2>
     )
 }

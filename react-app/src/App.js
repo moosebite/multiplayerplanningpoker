@@ -1,10 +1,10 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
-import './App.css'
-import GameRoom from './GameRoom'
-import './GameRoom.css'
-import LoginPage from './LoginPage'
-import './LoginPage.css'
+import './Styles/App.css'
+import GameRoom from './Components/GameRoom'
+import './Styles/GameRoom.css'
+import LoginPage from './Components/LoginPage'
+import './Styles/LoginPage.css'
 //import { isObjectExpression } from '@babel/types';
 
 function App() {
