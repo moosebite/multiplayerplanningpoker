@@ -2,19 +2,19 @@ import io from 'socket.io'
 
 const socket = io.connect('http://localhost:8080')
 
-function UpdateVote(vote) {
+function updateVote(vote) {
     
 }
 
-function ClearVote() {
+function clearVote() {
     
 }
 
-function Username(user) {
+function username(user) {
     io.emit('username', user);
 }
 
-function UpdateUserList(callback) {
+function updateUserList(callback) {
     socket.on('current', newUserList => {
         callback(newUserList);
         console.log('Received new userList.');
