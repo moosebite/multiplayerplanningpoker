@@ -1,20 +1,20 @@
 import React from 'react'
 import '../Styles/GameRoom.css'
 import UsernameList from './UsernameList'
-import StoryDescription from './StoryDescription'
-import StoryTitle from './StoryTitle'
+import Story from './Story'
+import FibButtons from './FibButtons'
 
-
-function GameRoom() {
-    return(
-        <div>
-            <StoryTitle />
-            <StoryDescription />
-            <br />
-            <UsernameList />
-            <GameRoom />
-        </div>
-    );
+class GameRoom extends React.Component {
+    render() {
+        return(
+            <div>
+                <Story />
+                <br />
+                <UsernameList />
+                <FibButtons />
+            </div>
+        );
+    }
 }
 
 export default GameRoom;
