@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
 import '../Styles/UsernameList.css'
 
-class UsernameList extends Component {
+class UsernameList extends React.Component {
     render() {
         return(
             <p2>

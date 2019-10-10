@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
 import '../Styles/Story.css'
 
-class Story extends Component {
+class Story extends React.Component {
     render() {
         return (
             <div>

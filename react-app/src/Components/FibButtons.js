@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
 import '../Styles/FibButtons.css'
 
-class FibButtons extends Component {
+class FibButtons extends React.Component {
     render() {
         return (
             <body className='body1'>
