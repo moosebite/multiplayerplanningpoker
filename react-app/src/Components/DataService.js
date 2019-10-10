@@ -1,22 +1,15 @@
-import React from 'react'
 import socket from 'socket.io'
 
-function UpdateVote() {
-    return(
-    
-    );
+function updateVote() {
+    return null
 }
 
-function ClearVote() {
-    return(
-    
-    );
+function clearVote() {
+    return null
 }
 
-function Username() {
-    return(
-    
-    );
+function username() {
+    return null
 }
 
 export default DataService

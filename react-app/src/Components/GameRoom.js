@@ -1,16 +1,14 @@
 import React from 'react'
 import '../Styles/GameRoom.css'
 import UsernameList from './UsernameList'
-import StoryDescription from './StoryDescription'
-import StoryTitle from './StoryTitle'
+import Story from './Story'
 import FibButtons from './FibButtons'
 
 
 function GameRoom() {
     return(
         <div>
-            <StoryTitle />
-            <StoryDescription />
+            <Story />
             <br />
             <UsernameList />
             <FibButtons />
