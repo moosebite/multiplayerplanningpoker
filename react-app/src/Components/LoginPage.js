@@ -7,7 +7,8 @@ class LoginPage extends React.Component {
             <div>
                 <h1>Input your name:</h1>
                 <form action='./GameRoom'>
-                <input type='text' className='input'/>
+                <input type='text' className='input1'/>
+                <button onClick='./GameRoom'>Submit</button>
                 </form>
             </div>
         )
