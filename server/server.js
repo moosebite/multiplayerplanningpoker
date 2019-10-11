@@ -11,7 +11,7 @@ var gmChosen = false;
 io.sockets.on('connection', function(socket) {
 
     socket.on('addUser', function(username) {
-        userList[socket.id] = {username : username, GM = false, vote : null};
+        userList[socket.id] = {username : username, GM : false, vote : null};
         if(!gmChosen)
         {
             userList[socket.id].GM = true;
