@@ -1,23 +1,27 @@
 import React from 'react'
+
 import '../Styles/FibButtons.css'
 
+import { Button, Container, Row, Col } from 'react-bootstrap'
+
 class FibButtons extends React.Component {
+    numbers = [0,1,2,3,5,8,13,21]
     render() {
-        return (
-            <body className='body1'>
-            <button className="myButton" id="0">0</button>
-            <button className="myButton" id="1">1</button>
-            <button className="myButton" id="2">2</button>
-            <button className="myButton" id="3">3</button>
-            <button className="myButton" id="5">5</button>
-            <button className="myButton" id="8">8</button>
-            <button className="myButton" id="13">13</button>
-            <button className="myButton" id="21">21</button>
-            <button className="myButton" id="?">?</button>
-            <br />
-        </body>
+            const rowButtons = this.numbers.map((number) => {
+                return (
+                    <Col xs={3}>
+                        <Button className='fibButton' variant="outline-primary">{number}
+                        </Button>
+                    </Col>
+                )
+            });
+            return (
+                <Container className='Container1'>
+                    <Row className='Row1'>
+                        {rowButtons}
+                    </Row>
+                </Container>
             )
-        }
     }
-    
+}
 export default FibButtons
