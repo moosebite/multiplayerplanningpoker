@@ -15,7 +15,7 @@ function addUser(username) {
 }
 
 function updateUserList(callback) {
-    socket.on('current', newUserList => {
+    socket.on('updateUserList', newUserList => {
         callback(newUserList);
         console.log('Received new userList.');
     });
