@@ -22,7 +22,7 @@ function updateUserList(callback) {
 }
 
 function showVotes(callback) {
-    socket.on('toggleVotes', () => callback());
+    socket.on('showVotes', () => callback());
 }
 
 function hideVotes(callback) {
