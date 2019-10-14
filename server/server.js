@@ -23,19 +23,22 @@ io.sockets.on('connection', function(socket) {
     })
     
     socket.on('clearVotes', function(){ 
-        io.emit('toggleVotes');
+        io.emit('hideVotes');
         Object.keys(userMap).map((key) => userMap[key].vote = null);
         upDate();
     });
     
     socket.on('disconnect', function () {
-        if(userMap[socket.id].GM)
+        userWasGM = userMap[socket.id].GM
+        
+        delete userMap[socket.id]
+
+        if(userWasGM)   //If the deleted user was a Game Master then set new Game Master
         {
             var keys = Object.keys(userMap)
-            if(keys.length < 1)
-                userMap[keys[1]].GM = true;
+            if(keys.length)
+                userMap[keys[0]].GM = true;
         }
-        delete userMap[socket.id]
         upDate();
     });
     
@@ -48,7 +51,7 @@ io.sockets.on('connection', function(socket) {
             allVotesIn = false;
         })
         if (allVotesIn) {
-            io.emit('toggleVotes');
+            io.emit('showVotes');
         }        
     };
 });
