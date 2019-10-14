@@ -1,6 +1,6 @@
-import io from 'socket.io-client'
+import io from 'socket.io-client';
 
-const socket = io('http://localhost:8080')
+const socket = io('http://localhost:8080');
 
 function updateVote(vote) {
     io.emit('updateVote', vote);
@@ -17,6 +17,7 @@ function addUser(username) {
 function updateUserList(callback) {
     socket.on('updateUserList', (newUserList) => {
         callback(newUserList);
+        // eslint-disable-next-line no-console
         console.log('Received new userList.');
     });
 }

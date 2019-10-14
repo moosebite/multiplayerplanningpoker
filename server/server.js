@@ -1,18 +1,19 @@
+/* eslint-disable no-use-before-define */
 // Variable Instantiations
 const io = require('socket.io')();
 
-var PORT = 8080;
-    //This Map contains objects with usernames, votes and whether or not the user is a Game Master and the object's key is the socket.id
-var userMap = {}
+const PORT = 8080;
+// This Map contains objects with usernames, votes and whether or not the user is a Game Master and
+// the object's key is the socket.id
+let userMap = {};
 
 // on Connection
-io.sockets.on('connection', function(socket) {
-
-    socket.on('addUser', function(username) {
+io.sockets.on('connection', (socket) => {
+    socket.on('addUser', (newUsername) => {
         userMap[socket.id] = {
-            username : username, 
-            GM : Object.keys(userMap).length ? false : true, 
-            vote : null
+            username: newUsername,
+            GM: !!Object.keys(userMap).length,
+            vote: null,
         };
         upDate();
     });
@@ -20,41 +21,43 @@ io.sockets.on('connection', function(socket) {
     socket.on('updateVote', (vote) => {
         userMap[socket.id].vote = vote;
         upDate();
-    })
-    
-    socket.on('clearVotes', function(){ 
+    });
+
+    socket.on('clearVotes', () => {
         io.emit('hideVotes');
-        Object.keys(userMap).map((key) => userMap[key].vote = null);
+        userMap = Object.keys(userMap).map((key) => ({ ...userMap[key], vote: null }));
         upDate();
     });
-    
-    socket.on('disconnect', function () {
-        userWasGM = userMap[socket.id].GM
-        
-        delete userMap[socket.id]
 
-        if(userWasGM)   //If the deleted user was a Game Master then set new Game Master
-        {
-            var keys = Object.keys(userMap)
-            if(keys.length)
+    socket.on('disconnect', () => {
+        const userWasGM = userMap[socket.id].GM;
+
+        delete userMap[socket.id];
+        // If the deleted user was a Game Master then set new Game Master
+        if (userWasGM) {
+            const keys = Object.keys(userMap);
+            if (keys.length) {
                 userMap[keys[0]].GM = true;
+            }
         }
         upDate();
     });
-    
+
     function upDate() {
         io.emit('updateUserList', userMap);
-        var allVotesIn = true;
+        let allVotesIn = true;
 
-        Object.keys(userMap).map((key) => {
-        if(userMap[key].vote === null)
-            allVotesIn = false;
-        })
+        Object.keys(userMap).forEach((key) => {
+            if (userMap[key].vote === null) {
+                allVotesIn = false;
+            }
+        });
         if (allVotesIn) {
             io.emit('showVotes');
-        }        
-    };
+        }
+    }
 });
-    // listening on port 8080
-io.listen(PORT)
+// listening on port 8080
+io.listen(PORT);
+// eslint-disable-next-line no-console
 console.log(`Listening on port ${PORT}.`);
