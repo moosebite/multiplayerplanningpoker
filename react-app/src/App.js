@@ -1,30 +1,26 @@
 import React from 'react'
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
-import './App.css'
-import GameRoom from './GameRoom'
-import './GameRoom.css'
-import LoginPage from './LoginPage'
-import './LoginPage.css'
-//import { isObjectExpression } from '@babel/types';
+import { BrowserRouter as Switch, Route } from "react-router-dom"
+import './Styles/App.css'
+import GameRoom from './Components/GameRoom'
+import './Styles/GameRoom.css'
+import LoginPage from './Components/LoginPage'
+import './Styles/LoginPage.css'
 
-function App() {
-  return (
-    <div>
-      <Switch>
-        <Route path='/GameRoom'>
-          <GameRoom />
-          </Route>
-        <Route path='/'>
-          <LoginPage />
-          </Route>
-      </Switch>
-    </div>
-  );
+class App extends React.Component {
+   render () {
+    return (
+      <div>
+        <Switch>
+          <Route path='/GameRoom'>
+            <GameRoom />
+            </Route>
+          <Route path='/'>
+            <LoginPage />
+            </Route>
+        </Switch>
+      </div>
+    );
+  }
 }
 
 export default App;
-
-//var username = prompt('Please tell me your name');
-//socket.emit('username', username);
-//import openSocket from 'socket.io-client';
-//const socket = openSocket(myURL);
