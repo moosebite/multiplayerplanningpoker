@@ -21,8 +21,12 @@ function updateUserList(callback) {
     });
 }
 
-function toggleVotes(callback) {
+function showVotes(callback) {
     socket.on('toggleVotes', () => callback());
 }
 
-export { updateVote, clearVotes, addUser, updateUserList, toggleVotes }
+function hideVotes(callback) {
+    socket.on('hideVotes', () => callback());
+}
+
+export { updateVote, clearVotes, addUser, updateUserList, showVotes, hideVotes }
