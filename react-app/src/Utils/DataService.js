@@ -30,4 +30,6 @@ function hideVotes(callback) {
     socket.on('hideVotes', () => callback());
 }
 
-export { updateVote, clearVotes, addUser, updateUserList, showVotes, hideVotes }
+export {
+    updateVote, clearVotes, addUser, updateUserList, showVotes, hideVotes,
+};
