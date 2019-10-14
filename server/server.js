@@ -2,49 +2,54 @@
 const io = require('socket.io')();
 
 var PORT = 8080;
-
-var userList = new Map();
-
-var gmChosen = false;
+    //This Map contains objects with usernames, votes and whether or not the user is a Game Master and the object's key is the socket.id
+var userMap = {}
 
 // on Connection
 io.sockets.on('connection', function(socket) {
 
     socket.on('addUser', function(username) {
-        userList[socket.id] = {username : username, GM : false, vote : null};
-        if(!gmChosen)
-        {
-            userList[socket.id].GM = true;
-            gmChosen = true;
-        }
+        userMap[socket.id] = {
+            username : username, 
+            GM : Object.keys(userMap).length ? false : true, 
+            vote : null
+        };
         upDate();
     });
 
     socket.on('updateVote', (vote) => {
-        userList[socket.id].vote = vote;
+        userMap[socket.id].vote = vote;
         upDate();
     })
     
     socket.on('clearVotes', function(){ 
         io.emit('toggleVotes');
-        Object.keys(userList).map((key) => userList[key].vote = null);
+        Object.keys(userMap).map((key) => userMap[key].vote = null);
         upDate();
     });
     
     socket.on('disconnect', function () {
-        userList[socket.id] = null;
+        if(userMap[socket.id].GM)
+        {
+            var keys = Object.keys(userMap)
+            if(keys.length < 1)
+                userMap[keys[1]].GM = true;
+        }
+        delete userMap[socket.id]
         upDate();
     });
     
     function upDate() {
-        io.emit('updateUserList', userList);
+        io.emit('updateUserList', userMap);
         var allVotesIn = true;
 
-        Object.keys(userList).map((key) => {
-        if(userList[key].vote === null)
+        Object.keys(userMap).map((key) => {
+        if(userMap[key].vote === null)
             allVotesIn = false;
         })
-        allVotesIn ? io.emit('toggleVotes') : null;
+        if (allVotesIn) {
+            io.emit('toggleVotes');
+        }        
     };
 });
     // listening on port 8080
