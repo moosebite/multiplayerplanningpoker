@@ -5,6 +5,7 @@ const io = require('socket.io')();
 const PORT = 8080;
 // This Map contains objects with usernames, votes and whether or not the user is a Game Master and
 // the object's key is the socket.id
+// eslint-disable-next-line prefer-const
 let userMap = {};
 
 // on Connection
@@ -12,7 +13,7 @@ io.sockets.on('connection', (socket) => {
     socket.on('addUser', (newUsername) => {
         userMap[socket.id] = {
             username: newUsername,
-            GM: !!Object.keys(userMap).length,
+            GM: !Object.keys(userMap).length,
             vote: null,
         };
         upDate();
@@ -25,7 +26,7 @@ io.sockets.on('connection', (socket) => {
 
     socket.on('clearVotes', () => {
         io.emit('hideVotes');
-        userMap = Object.keys(userMap).map((key) => ({ ...userMap[key], vote: null }));
+        Object.keys(userMap).forEach((key) => { userMap[key].vote = null; });
         upDate();
     });
 
