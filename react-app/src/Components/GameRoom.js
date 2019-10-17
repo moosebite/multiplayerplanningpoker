@@ -10,7 +10,7 @@ function GameRoom() {
   return (
     <div>
       <StoryTitle />
-      <StoryDescription />
+      <StoryDescription  />
       <br />
       <ListRender />
       <FibButtons />

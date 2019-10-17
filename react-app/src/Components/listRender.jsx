@@ -32,7 +32,7 @@ class ListRender extends Component {
 
   render() {
     //A div where were React.Fragment was. We put React.Fragment instead to prevent unnecessary, nested divs
-
+    
     //For input, don't put value equal to something. Instead use placeholder
 
     return (
@@ -69,6 +69,8 @@ class ListRender extends Component {
     const count = this.state.tags.length; //This sets a count variable to the length of the roster
     return count === 0 ? "Zero" : count; //If the count is equal to 0, return 'zero', otherwise return the count.
   }
+
+  
 }
 
 export default ListRender;
