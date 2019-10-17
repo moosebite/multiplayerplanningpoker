@@ -2,8 +2,9 @@ import React from 'react'
 import '../Styles/FibButtons.css'
 import StoryDescription from './StoryDescription';
 import ListRender from './listRender';
+import { updateVote } from '../Utils/DataService';
 
-var myValue;
+
 function FibButtons () {
     return (
         
@@ -23,8 +24,8 @@ function FibButtons () {
     )
 }
 function showValue (e) {
-    myValue = e.target.id;
-    console.log("Value is: ", myValue);
+    updateVote(e.target.id);
+    console.log("Value is: ", this );
     
     }
 
