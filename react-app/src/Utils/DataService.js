@@ -3,15 +3,15 @@ import io from 'socket.io-client';
 const socket = io('http://localhost:8080');
 
 function updateVote(vote) {
-    io.emit('updateVote', vote);
+    socket.emit('updateVote', vote);
 }
 
 function clearVotes() {
-    io.emit('clearVotes');
+    socket.emit('clearVotes');
 }
 
 function addUser(username) {
-    io.emit('addUser', username);
+    socket.emit('addUser', username);
 }
 
 function updateUserList(callback) {
