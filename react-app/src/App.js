@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Switch, Route } from "react-router-dom"
+import { Switch, Route } from "react-router-dom"
 import './Styles/App.css'
 import GameRoom from './Components/GameRoom'
 import './Styles/GameRoom.css'
