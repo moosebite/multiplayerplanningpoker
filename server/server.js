@@ -1,6 +1,5 @@
 /* eslint-disable no-use-before-define */
 // Variable Instantiations
-<<<<<<< HEAD
 const io = require('socket.io')();
 
 const PORT = 8080;
@@ -58,29 +57,6 @@ io.sockets.on('connection', (socket) => {
             io.emit('showVotes');
         }
     }
-=======
-const express = require("express");
-const app = express();
-const http = require("http").Server(app);
-const io = require("socket.io")(http);
-var userCount = 0;
-
-var usernameList = [];
-
-// Create server
-io.sockets.on("connection", function(socket) {
-  socket.on("username", function(username) {
-    socket.username = username;
-    usernameList.push(username);
-    console.log(usernameList[userCount]);
-    io.emit("currentUsernames", usernameList);
-  });
-});
-
-const server = http.listen(8080, "71.228.203.39" || "localhost", function() {
-  //This has to be YOUR IP address for now in order to work
-  console.log("listening on *:8080");
->>>>>>> c8b18a090828e02f9106ccb1b2aa21ee1fdb3c5a
 });
 // listening on port 8080
 io.listen(PORT);

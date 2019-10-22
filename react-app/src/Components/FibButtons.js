@@ -1,29 +1,33 @@
 import React from 'react'
+
 import '../Styles/FibButtons.css'
-import StoryDescription from './StoryDescription';
-import ListRender from './listRender';
+
+import { Button, Container, Row, Col } from 'react-bootstrap'
+
 import { updateVote } from '../Utils/DataService';
 
-
-function FibButtons () {
-    return (
-        //Created Fib Buttons with value corresponding to their ID 
-        <body className='body1'>
-        <button className="myButton" id="0" onClick = {showValue}>0 </button>
-        <button className="myButton" id="1" onClick = {showValue}>1</button>
-        <button className="myButton" id="2" onClick = {showValue}>2</button>
-        <button className="myButton" id="3" onClick = {showValue}>3</button>
-        <button className="myButton" id="5" onClick = {showValue}>5</button>
-        <button className="myButton" id="8" onClick = {showValue}>8</button>
-        <button className="myButton" id="13" onClick = {showValue}>13</button>
-        <button className="myButton" id="21" onClick = {showValue}>21</button>
-        <button className="myButton" id="?" onClick = {showValue}>?</button>
-        <br /> 
-
-    </body>
-    )
+class FibButtons extends React.Component {
+    numbers = [0,1,2,3,5,8,13,21,'?']
+    render() {
+            const rowButtons = this.numbers.map((number) => {
+                return (
+                    <Col xs={3}>
+                        <Button className='fibButton' variant="outline-primary">{number} onClick = {showValue}
+                        </Button>
+                    </Col>
+                )
+            });
+            return (
+                <Container className='Container1'>
+                    <Row className='Row1'>
+                        {rowButtons}
+                    </Row>
+                </Container>
+            )
+    }
 }
-//OnClick funtion to pass the ID of a button to update vote function
+
+//OnClick function to pass the ID of a button to update vote function
 function showValue (e) {
     updateVote(e.target.id);
     console.log("Value is: ", this );
