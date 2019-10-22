@@ -7,9 +7,10 @@ class UsernameList extends React.Component {
         return(
             <p2>
                 (Usernames go here.)
-                <div className="spinner-border" role="status">
-                    <span className="sr-only">Loading...</span>
-                </div>
+                <button class="btn btn-primary" type="button" disabled>
+                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    Waiting for vote
+                </button>
             </p2>
         )
     }
