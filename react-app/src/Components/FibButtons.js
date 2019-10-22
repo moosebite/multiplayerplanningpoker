@@ -34,6 +34,3 @@ function showValue (e) {
     }
 
 export default FibButtons
-
-
-
