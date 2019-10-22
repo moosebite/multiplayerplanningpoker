@@ -18,8 +18,8 @@ function FibButtons () {
         <button className="myButton" id="13" onClick = {showValue}>13</button>
         <button className="myButton" id="21" onClick = {showValue}>21</button>
         <button className="myButton" id="?" onClick = {showValue}>?</button>
-        <br />
-        
+        <br /> 
+
     </body>
     )
 }
