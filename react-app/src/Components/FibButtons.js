@@ -7,7 +7,7 @@ import { updateVote } from '../Utils/DataService';
 
 function FibButtons () {
     return (
-        
+        //Created Fib Buttons with value corresponding to their ID 
         <body className='body1'>
         <button className="myButton" id="0" onClick = {showValue}>0 </button>
         <button className="myButton" id="1" onClick = {showValue}>1</button>
@@ -23,6 +23,7 @@ function FibButtons () {
     </body>
     )
 }
+//OnClick funtion to pass the ID of a button to update vote function
 function showValue (e) {
     updateVote(e.target.id);
     console.log("Value is: ", this );
