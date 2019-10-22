@@ -1,52 +1,64 @@
-// Server for the multiplayer planning poker
-
+/* eslint-disable no-use-before-define */
 // Variable Instantiations
-const express = require('express');
-const app = express();
-const http = require('http').Server(app);
-const io = require('socket.io')(http);
+const io = require('socket.io')();
 
-var users = [];
+const PORT = 8080;
+// This Map contains objects with usernames, votes and whether or not the user is a Game Master and
+// the object's key is the socket.id
+// eslint-disable-next-line prefer-const
+let userMap = {};
 
 // on Connection
-io.sockets.on('connection', function(socket) {
-        // When the user object is given adding it to the users array and updating the clients
-    socket.on('username', function(username) {
-        users.push({username : username, GM = false, vote : 0, socketId : socket.Id});
-        users.length == 1 ? users[0].GM = true : null
-        UpDate(users);
+io.sockets.on('connection', (socket) => {
+    socket.on('addUser', (newUsername) => {
+        userMap[socket.id] = {
+            username: newUsername,
+            GM: !Object.keys(userMap).length,
+            vote: null,
+        };
+        upDate();
     });
-        // Remove user from array when they disconnect
-        // Removing the user that has disconnected
-        // Updating the clients
-    socket.on('disconnect', function () {
-        usersNew = users.filter((user) => user.socketId != socket.Id);
-        UpDate(usersNew);
-     });
 
-});
-    // Calling the update function when a clint requests it
-    // The function that updates the clients when there has been a change to the users array
-    // Moving the updated array to the users array
-    // Emitting the updated users array to the clients
-    // Checking if all votes are in if so showing votes on the clients
-io.sockets.on('update', UpDate);
+    socket.on('updateVote', (vote) => {
+        userMap[socket.id].vote = vote;
+        upDate();
+    });
 
-function UpDate(usersUpdate) {
-    users = usersUpdate;
-    io.emit('current', users);
-    !users.some((current) => current.vote === null) ? io.emit('showVotes') : null;
-};
-    //when the game master requests the votes to be cleared 
-    //removing the votes off the clients screens
-    //resetting all votes to null
-    //calling the update function to give the updated array to the clients
-io.sockets.on('clearVotes', function(){ 
-    io.emit('hideVotes');
-    users.forEach((current) => current.vote = null);
-    UpDate(users);
+    socket.on('clearVotes', () => {
+        io.emit('hideVotes');
+        Object.keys(userMap).forEach((key) => { userMap[key].vote = null; });
+        upDate();
+    });
+
+    socket.on('disconnect', () => {
+        const userWasGM = userMap[socket.id].GM;
+
+        delete userMap[socket.id];
+        // If the deleted user was a Game Master then set new Game Master
+        if (userWasGM) {
+            const keys = Object.keys(userMap);
+            if (keys.length) {
+                userMap[keys[0]].GM = true;
+            }
+        }
+        upDate();
+    });
+
+    function upDate() {
+        io.emit('updateUserList', userMap);
+        let allVotesIn = true;
+
+        Object.keys(userMap).forEach((key) => {
+            if (userMap[key].vote === null) {
+                allVotesIn = false;
+            }
+        });
+        if (allVotesIn) {
+            io.emit('showVotes');
+        }
+    }
 });
-    // listening on port 8080
-const server = http.listen(8080, function() {
-    console.log('listening on *:8080');
-});
+// listening on port 8080
+io.listen(PORT);
+// eslint-disable-next-line no-console
+console.log(`Listening on port ${PORT}.`);
