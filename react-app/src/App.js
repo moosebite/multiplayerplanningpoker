@@ -1,9 +1,13 @@
 import React from 'react'
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { BrowserRouter as Switch, Route } from "react-router-dom"
 =======
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 >>>>>>> c8b18a090828e02f9106ccb1b2aa21ee1fdb3c5a
+=======
+import { Switch, Route } from "react-router-dom"
+>>>>>>> 1b97a86fb536cc71d111a9eb9a1e9a3bb5fb96c0
 import './Styles/App.css'
 import GameRoom from './Components/GameRoom'
 import './Styles/GameRoom.css'

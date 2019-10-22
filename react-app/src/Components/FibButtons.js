@@ -27,7 +27,6 @@ function FibButtons () {
 function showValue (e) {
     updateVote(e.target.id);
     console.log("Value is: ", this );
-    
     }
 
 export default FibButtons
