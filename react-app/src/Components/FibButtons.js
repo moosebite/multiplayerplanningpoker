@@ -8,11 +8,17 @@ import { updateVote } from '../Utils/DataService';
 
 class FibButtons extends React.Component {
     numbers = [0,1,2,3,5,8,13,21,'?']
+
+    handleShowValue = (event) => {
+        updateVote(event);
+        console.log("Value is:",event, '.');
+    }
+
     render() {
             const rowButtons = this.numbers.map((number) => {
                 return (
                     <Col xs={3}>
-                        <Button className='fibButton' variant="outline-primary">{number} onClick = {showValue}
+                        <Button className='fibButton' variant="outline-primary" onClick={(event) => this.handleShowValue(number)}>{number}
                         </Button>
                     </Col>
                 )
@@ -26,11 +32,5 @@ class FibButtons extends React.Component {
             )
     }
 }
-
-//OnClick function to pass the ID of a button to update vote function
-function showValue (e) {
-    updateVote(e.target.id);
-    console.log("Value is: ", this );
-    }
 
 export default FibButtons
