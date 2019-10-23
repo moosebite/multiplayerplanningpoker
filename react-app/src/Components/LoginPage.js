@@ -1,7 +1,6 @@
 import React from 'react'
 
 import '../Styles/LoginPage.css'
-import { addUser } from '../Utils/DataService'
 
 class LoginPage extends React.Component {
     
@@ -10,7 +9,9 @@ class LoginPage extends React.Component {
 
         //event.preventDefault(); 
 
-        addUser(this.input.value);
+        this.props.data.addUser(this.input.value);
+
+        this.props.router.push('./GameRoom');
     }
 
     render() {
@@ -21,7 +22,7 @@ class LoginPage extends React.Component {
                 <input type='text' className='input1'
                 ref={(input) => this.input = input}
                 />
-                <button onClick= './GameRoom' onClick = {this.handleSubmit} >Submit</button>
+                <button onClick = {this.handleSubmit} >Submit</button>
                 </form>
             </div>
         )

@@ -5,8 +5,17 @@ import GameRoom from './Components/GameRoom'
 import './Styles/GameRoom.css'
 import LoginPage from './Components/LoginPage'
 import './Styles/LoginPage.css'
+import DataService from './Utils/DataService'
+import io from 'socket.io-client';
 
 class App extends React.Component {
+
+  DataObject = () => {
+    const socket = io('http://localhost:8080');
+    var data = new DataService(socket);
+    return data;
+  }
+
    render () {
     return (
       <div>
@@ -15,7 +24,7 @@ class App extends React.Component {
             <GameRoom />
             </Route>
           <Route path='/'>
-            <LoginPage />
+            <LoginPage data = {this.DataObject} />
             </Route>
         </Switch>
       </div>
