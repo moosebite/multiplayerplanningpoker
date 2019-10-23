@@ -15,16 +15,16 @@ class App extends React.Component {
     var data = new DataService(socket);
     return data;
   }
-
+  data = this.DataObject();
    render () {
     return (
       <div>
         <Switch>
           <Route path='/GameRoom'>
-            <GameRoom />
+            <GameRoom data = {this.data} />
             </Route>
           <Route path='/'>
-            <LoginPage data = {this.DataObject} />
+            <LoginPage data = {this.data} />
             </Route>
         </Switch>
       </div>
