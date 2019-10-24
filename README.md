@@ -12,12 +12,7 @@ Below you will find instructions on how to set up your machine to be able to run
 2. Ensure you have npm installed and up to date.
 
 **Installing required Modules from a LINUX Terminal**
-1. Utilize the command 'npm install react.js'.
-2. Utilize the command 'npm install react-scripts'.
-3. Utilize the command 'npm install socket.io'.
-4. Utilize the command 'npm install bootstrap'.
-5. Utilize the command 'npm install react-bootstrap'.
-6. Utilize the command 'npm install react.js'.
+1. Utilize the command 'npm install'.
 
 **Connecting to the Git Repo from a LINUX Terminal**
 1. Utilize the command 'git clone git@git.decisionsource.com:mtsu-software-engineering/fall-2019-multiplayer-planning-poker.git' to clone the Repo
