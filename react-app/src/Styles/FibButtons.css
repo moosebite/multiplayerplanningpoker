@@ -2,30 +2,16 @@
     margin-bottom: 10px;
     width: 100%;
     height: 120px;
-    position: relative;
     position: -webkit-sticky;
     text-align: center;
-    
 }
 
 .Container1 {
     position: absolute;
     position: -webkit-sticky;
-    bottom: 5%;
-    width: 30%;
-    display: flex;
-    flex-direction: row;
-    align-content: stretch;
+    bottom: 0%;
 }
 
 .Row1 {
-    display: flex;
-    align-content: stretch;
-    align-items: center;
-    align-self: center;
-    flex-direction: row;
-    position: sticky;
-    text-align: center;
-    justify-content: center;
-    
+    justify-content: left;
 }
