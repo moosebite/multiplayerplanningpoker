@@ -8,8 +8,8 @@ class LoginPage extends React.Component {
         console.log('Form submitted!');
 
         //event.preventDefault(); 
-
-        this.props.data.addUser(this.input.value);
+        localStorage.setItem('username', this.input.value);
+        //this.props.data.addUser(this.input.value);
 
         this.props.router.push('./GameRoom');
     }

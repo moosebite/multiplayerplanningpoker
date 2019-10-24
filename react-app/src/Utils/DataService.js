@@ -1,7 +1,8 @@
 class DataService {
     
-    constructor(newSocket) {
+    constructor(newSocket, username) {
         this.socket = newSocket;
+        this.addUser(username)
     }
 
     updateVote(vote) {
