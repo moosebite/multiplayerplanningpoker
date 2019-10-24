@@ -5,11 +5,9 @@ import '../Styles/LoginPage.css'
 class LoginPage extends React.Component {
     
     handleSubmit = (event) => {
-        console.log('Form submitted!');
-
-        //event.preventDefault(); 
+        console.log('Form submitted!'); 
+        
         localStorage.setItem('username', this.input.value);
-        //this.props.data.addUser(this.input.value);
 
         this.props.router.push('./GameRoom');
     }

@@ -6,19 +6,15 @@ import FibButtons from './FibButtons'
 import DataService from '../Utils/DataService'
 
 class GameRoom extends React.Component {
-    DataObject = () => {
-        this.username = localStorage.getItem('username');
-        var data = new DataService(this.username);
-        return data;
-    }
-    data = this.DataObject();
+    username = localStorage.getItem('username');
+    dataService = new DataService(this.username);
     render() {
         return(
             <div>
                 <Story />
                 <br />
-                <UsernameList data = {this.data} />
-                <FibButtons data = {this.data} />
+                <UsernameList dataService = {this.dataService} />
+                <FibButtons dataService = {this.dataService} />
             </div>
         );
     }
