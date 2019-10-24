@@ -1,8 +1,10 @@
+import io from 'socket.io-client';
+
 class DataService {
     
-    constructor(newSocket, username) {
-        this.socket = newSocket;
-        this.addUser(username)
+    constructor(username) {
+        this.socket = io('http://localhost:8080');
+        this.addUser(username);
     }
 
     updateVote(vote) {
