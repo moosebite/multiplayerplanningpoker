@@ -5,13 +5,13 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 import { Button, Container, Row, Col } from 'react-bootstrap'
 
-import { updateVote } from '../Utils/DataService';
+import DataService from '../Utils/DataService'
 
 class FibButtons extends React.Component {
     numbers = [0,1,2,3,5,8,13,21,'?']
 
     handleShowValue = (event) => {
-        updateVote(event);
+        DataService.updateVote(event);
         console.log("Value is:",event, '.');
     }
 
