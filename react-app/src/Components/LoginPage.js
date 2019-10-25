@@ -15,12 +15,13 @@ class LoginPage extends React.Component {
     render() {
         return (
             <div className='loginBackground'>
+                <h1>Multiplayer Planning Poker</h1> 
                 <h1>Input your name:</h1>
                 <form action= './GameRoom'>
                 <input type='text' className='input1'
                 ref={(input) => this.input = input}
                 />
-                <button onClick = {this.handleSubmit} >Submit</button>
+                <button onClick = {this.handleSubmit} >Play Planning Poker</button>
                 </form>
             </div>
         )
