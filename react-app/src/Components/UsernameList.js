@@ -8,7 +8,8 @@ import Spinner from 'react-bootstrap/Spinner';
 class UsernameList extends React.Component {
     
     state = { 
-        playerList: {}
+        playerList: {},
+        showVotes: false
     }
 
 
@@ -22,22 +23,38 @@ class UsernameList extends React.Component {
             console.table(this.state.playerList);
         });
 
+        this.props.dataService.hideVotes(() => {
+            this.setState({
+                showVotes: false
+            })
+        })
+
+        this.props.dataService.showVotes(() => {
+            this.setState({
+                showVotes: true
+            })
+        })
+
         this.props.dataService.requestUpdate();
     }
     
     
     render() {
         const playerListElements = Object.values(this.state.playerList).map(player => {
-            return <li>{player.username}</li>;
+            if(!this.state.showVotes){
+                if(player.vote === null)
+                    return <div><li>{player.username}</li><li><Spinner animation="border" size="sm" /></li></div>;
+                return <div><li>{player.username}</li><li><p1>&#10004;</p1></li></div>;
+            }
+            else{
+                return <div><li>{player.username}</li><li>{player.vote}</li></div>;
+            }
         });
-        //This is a test to make sure React-Bootstrap is running
-        //properly and to make sure the spinner works for later use.
-
-        //The spinner will ideally replace the bullet point by each name
         return(
-            <div class="wrapper">
-            <ul>{playerListElements}</ul>
-            <Spinner animation="border" size="sm" />
+            <div>
+                <form className="wrapper">
+                    <ul>{playerListElements}</ul>
+                </form>
             </div>
         )
     }
