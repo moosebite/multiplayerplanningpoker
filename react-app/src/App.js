@@ -11,10 +11,10 @@ class App extends React.Component {
       <div>
         <Switch>
           <Route path='/GameRoom'>
-            <GameRoom />
+            <GameRoom/>
             </Route>
           <Route path='/'>
-            <LoginPage />
+            <LoginPage/>
             </Route>
         </Switch>
       </div>
