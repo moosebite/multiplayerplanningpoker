@@ -9,7 +9,7 @@ class FibButtons extends React.Component {
     numbers = [0,1,2,3,5,8,13,21,'?']
 
     handleShowValue = (event) => {
-        this.props.DataService.updateVote(event);
+        this.props.dataService.updateVote(event);
         console.log("Value is:",event, '.');
     }
 
