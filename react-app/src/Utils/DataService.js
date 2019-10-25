@@ -27,6 +27,10 @@ class DataService {
             });
     }
 
+    requestUpdate(){
+        this.socket.emit('requestUpdate');
+    }    
+
     showVotes(callback) {
         this.socket.on('showVotes', () => callback());
     }

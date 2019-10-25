@@ -6,6 +6,7 @@ import UsernameList from './UsernameList'
 import Story from './Story'
 import FibButtons from './FibButtons'
 import DataService from '../Utils/DataService'
+import ClearVotesButton from './ClearVotesButton'
 
 class GameRoom extends React.Component {
     username = localStorage.getItem('username');
@@ -17,6 +18,7 @@ class GameRoom extends React.Component {
                 <br />
                 <UsernameList dataService = {this.dataService} />
                 <FibButtons dataService = {this.dataService} />
+                <ClearVotesButton dataService = {this.dataService} />
             </div>
         );
     }

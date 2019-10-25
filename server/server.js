@@ -31,6 +31,10 @@ io.sockets.on('connection', (socket) => {
         upDate();
     });
 
+    socket.on('requestUpdate', () => {
+        upDate();
+    });
+
     socket.on('disconnect', () => {
         const userWasGM = userMap[socket.id].GM;
 
