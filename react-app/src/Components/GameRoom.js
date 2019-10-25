@@ -9,7 +9,7 @@ import FibButtons from './FibButtons'
 class GameRoom extends React.Component {
     render() {
         return(
-            <div className='loginBackground'>
+            <div className='gameroomBackground'>
                 <Story />
                 <br />
                 <UsernameList />
