@@ -2,8 +2,10 @@
     background-color : rgb(255, 255, 255);
     color: black;
     margin-bottom: 10px;
-    width: 140px;
-    height: 190px;
+    width: 7vw;
+    min-width: 90%;
+    height: 10vw;
+    min-height: 120px;
     position: -webkit-sticky;
     text-align: center;
 }
@@ -12,10 +14,10 @@
     position: absolute;
     position: -webkit-sticky;
     bottom: 0%;
-    margin-left: 100px;
 }
 
 .Row1 {
     justify-content: left;
-    width: 160%;
+    width: 90vw;
+    max-width: 90vw;
 }
