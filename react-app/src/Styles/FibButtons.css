@@ -2,10 +2,16 @@
     background-color : rgb(255, 255, 255);
     color: black;
     margin-bottom: 10px;
+
     width: 7vw;
-    min-width: 90%;
+    min-width: 80px;
+    max-width: 130px;
+
     height: 10vw;
     min-height: 120px;
+    max-height: 190px;
+
+    font-size: xx-large;
     position: -webkit-sticky;
     text-align: center;
 }
@@ -19,5 +25,5 @@
 .Row1 {
     justify-content: left;
     width: 90vw;
-    max-width: 90vw;
+    max-width: 1800px;
 }
