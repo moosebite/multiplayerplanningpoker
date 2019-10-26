@@ -7,7 +7,7 @@ class Story extends React.Component {
         return (
             <div>
             <h1>
-                Hello Jokers' Wild! (Story Title goes here)
+                (Story Title goes here)
             </h1>
         </div>
         )
