@@ -6,7 +6,7 @@ class Story extends React.Component {
     render() {
         return (
             <div>
-            <h1>
+            <h1 className="Story">
                 (Story Title goes here)
             </h1>
         </div>
