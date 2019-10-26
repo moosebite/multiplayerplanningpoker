@@ -1,21 +1,25 @@
-.wrapper {
-  width: 250px;
+.flex-container {
+  width: 20vw;
+  min-width: 240px;
   margin-left: auto;
+  
   background-color : rgb(255, 255, 255);
-  text-align: left;
-  font-size: 16px;
+  
+  display: flex;
+
+  flex-flow: row wrap;
+  justify-content: space-between;
 }
-.wrapper ul {
+.player {
   display: inline-block;
-  margin-left: 10px;
+  list-style: none;
+  font-size: large;
   padding: 0;
+  max-width: 90%;
 }
-.wrapper li:first-child {
-  list-style-type: none;
-  float: left;
-}
-.wrapper li:last-child {
-  list-style-type: none;
-  float: right;
-  padding-left: 150px;
+.status {
+  display: inline-block;
+  list-style: none;
+  font-size: large;
+  padding: 0;
 }

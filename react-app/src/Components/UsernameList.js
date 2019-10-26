@@ -41,19 +41,24 @@ class UsernameList extends React.Component {
     
     render() {
         const playerListElements = Object.values(this.state.playerList).map(player => {
+
+            return <li>{player.username}</li>;
+        });
+        const voteStatus = Object.values(this.state.playerList).map(player => {
             if(!this.state.showVotes){
                 if(player.vote === null)
-                    return <div><li>{player.username}</li><li><Spinner animation="border" size="sm" /></li></div>;
-                return <div><li>{player.username}</li><li><p1>&#10004;</p1></li></div>;
+                    return <li><Spinner animation="border" size="sm" /></li>;
+                return <li><p1>&#10004;</p1></li>;
             }
             else{
-                return <div><li>{player.username}</li><li>{player.vote}</li></div>;
+                return <li>{player.vote}</li>;
             }
         });
         return(
             <div>
-                <form className="wrapper">
-                    <ul>{playerListElements}</ul>
+                <form className="flex-container">
+                    <ul className="player">{playerListElements}</ul>
+                    <ul className="status">{voteStatus}</ul>
                 </form>
             </div>
         )
