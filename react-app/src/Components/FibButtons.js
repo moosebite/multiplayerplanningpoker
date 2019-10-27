@@ -16,7 +16,7 @@ class FibButtons extends React.Component {
     render() {
             const rowButtons = this.numbers.map((number) => {
                 return (
-                    <div key={number.toString()}>
+                    <div key={number}>
                     <Col xs={6} sm={3} md={2} lg={1}>
                         <ThemeProvider prefixes={{ btn: 'my-btn' }}>
                             <Button className='fibButton' variant="outline-primary" onClick={(event) => this.handleShowValue(number)}>{number}
