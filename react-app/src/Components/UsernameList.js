@@ -42,16 +42,16 @@ class UsernameList extends React.Component {
     render() {
         const playerListElements = Object.values(this.state.playerList).map(player => {
 
-            return <li>{player.username}</li>;
+            return <li key={player.toString()}>{player.username}</li>;
         });
         const voteStatus = Object.values(this.state.playerList).map(player => {
             if(!this.state.showVotes){
                 if(player.vote === null)
-                    return <li><Spinner animation="border" size="sm" /></li>;
-                return <li>&#10004;</li>;
+                    return <li key={player.toString()}><Spinner animation="border" size="sm" /></li>;
+                return <li key={player.toString()}>&#10004;</li>;
             }
             else{
-                return <li>{player.vote}</li>;
+                return <li key={player.toString()}>{player.vote}</li>;
             }
         });
         return(
