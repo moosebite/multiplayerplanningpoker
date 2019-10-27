@@ -42,7 +42,7 @@ class UsernameList extends React.Component {
     render() {
         const playerListElements = Object.values(this.state.playerList).map(player => {
 
-            return <li key={player}>{player.username}</li>;
+            return <li>{player.username}</li>;
         });
         const voteStatus = Object.values(this.state.playerList).map(player => {
             if(!this.state.showVotes){
