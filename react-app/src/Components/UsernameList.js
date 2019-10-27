@@ -48,7 +48,7 @@ class UsernameList extends React.Component {
             if(!this.state.showVotes){
                 if(player.vote === null)
                     return <li><Spinner animation="border" size="sm" /></li>;
-                return <li><p1>&#10004;</p1></li>;
+                return <li>&#10004;</li>;
             }
             else{
                 return <li>{player.vote}</li>;
