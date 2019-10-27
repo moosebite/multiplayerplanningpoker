@@ -17,8 +17,9 @@ class LoginPage extends React.Component {
             <div className='loginBackground'>
                 <h1>Multiplayer Planning Poker</h1> 
                 <h1>Input your name:</h1>
+                <p3><center>*20 characters max*</center></p3>
                 <form action= './GameRoom'>
-                <input type='text' className='input1'
+                <input type='text' className='input1' maxLength='20'
                 ref={(input) => this.input = input}
                 />
                 <button onClick = {this.handleSubmit} >Play Planning Poker</button>
