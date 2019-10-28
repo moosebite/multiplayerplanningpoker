@@ -1,7 +1,6 @@
 import io from 'socket.io-client';
 
 class DataService {
-    
     constructor(username) {
         this.socket = io('http://localhost:8080');
         this.addUser(username);
@@ -24,12 +23,12 @@ class DataService {
             callback(newUserList);
             // eslint-disable-next-line no-console
             console.log('Received new userList.');
-            });
+        });
     }
 
-    requestUpdate(){
+    requestUpdate() {
         this.socket.emit('requestUpdate');
-    }    
+    }
 
     showVotes(callback) {
         this.socket.on('showVotes', () => callback());
@@ -40,4 +39,4 @@ class DataService {
     }
 }
 
-export default DataService
+export default DataService;

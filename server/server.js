@@ -16,7 +16,6 @@ io.sockets.on('connection', (socket) => {
             GM: !Object.keys(userMap).length,
             vote: null,
         };
-        console.log(userMap);
         upDate();
     });
 
