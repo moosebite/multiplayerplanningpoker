@@ -20,8 +20,10 @@ io.sockets.on('connection', (socket) => {
     });
 
     socket.on('updateVote', (vote) => {
-        userMap[socket.id].vote = vote;
-        upDate();
+        if (userMap[socket.id]) {
+            userMap[socket.id].vote = vote;
+            upDate();
+        }
     });
 
     socket.on('clearVotes', () => {
@@ -35,17 +37,20 @@ io.sockets.on('connection', (socket) => {
     });
 
     socket.on('disconnect', () => {
-        const userWasGM = userMap[socket.id].GM;
+        let userWasGM;
+        if (userMap[socket.id]) {
+            userWasGM = userMap[socket.id].GM;
 
-        delete userMap[socket.id];
-        // If the deleted user was a Game Master then set new Game Master
-        if (userWasGM) {
-            const keys = Object.keys(userMap);
-            if (keys.length) {
-                userMap[keys[0]].GM = true;
+            delete userMap[socket.id];
+            // If the deleted user was a Game Master then set new Game Master
+            if (userWasGM) {
+                const keys = Object.keys(userMap);
+                if (keys.length) {
+                    userMap[keys[0]].GM = true;
+                }
             }
+            upDate();
         }
-        upDate();
     });
 
     function upDate() {
