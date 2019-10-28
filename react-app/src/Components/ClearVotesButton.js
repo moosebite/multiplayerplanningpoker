@@ -1,10 +1,10 @@
-import React from 'react'
-import '../Styles/ClearVotesButton.css'
+import React from 'react';
+import '../Styles/ClearVotesButton.css';
 
 class ClearVotesButton extends React.Component {
     handleSubmit = (event) => {
-    this.props.dataService.clearVotes();
-    console.log("Clearing votes...");
+      this.props.dataService.clearVotes();
+      console.log("Clearing votes...");
     }
 
     render() {
@@ -16,4 +16,4 @@ class ClearVotesButton extends React.Component {
         }
     }
     
-export default ClearVotesButton
+export default ClearVotesButton;
