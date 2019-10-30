@@ -15,27 +15,28 @@ class UsernameList extends React.Component {
 
     constructor(props){
         super(props);
-
-        this.props.dataService.updateUserList( (updatedPlayerList) => {
-            this.setState({
-                playerList: updatedPlayerList
+        if (this.props.dataService) {
+            this.props.dataService.updateUserList( (updatedPlayerList) => {
+                this.setState({
+                    playerList: updatedPlayerList
+                });
+                console.table(this.state.playerList);
             });
-            console.table(this.state.playerList);
-        });
 
-        this.props.dataService.hideVotes(() => {
-            this.setState({
-                showVotes: false
+            this.props.dataService.hideVotes(() => {
+                this.setState({
+                    showVotes: false
+                })
             })
-        })
 
-        this.props.dataService.showVotes(() => {
-            this.setState({
-                showVotes: true
+            this.props.dataService.showVotes(() => {
+                this.setState({
+                    showVotes: true
+                })
             })
-        })
 
-        this.props.dataService.requestUpdate();
+            this.props.dataService.requestUpdate();
+        }
     }
     
     
