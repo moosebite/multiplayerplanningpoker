@@ -37,9 +37,8 @@ io.sockets.on('connection', (socket) => {
     });
 
     socket.on('disconnect', () => {
-        let userWasGM;
         if (userMap[socket.id]) {
-            userWasGM = userMap[socket.id].GM;
+            const userWasGM = userMap[socket.id].GM;
 
             delete userMap[socket.id];
             // If the deleted user was a Game Master then set new Game Master
