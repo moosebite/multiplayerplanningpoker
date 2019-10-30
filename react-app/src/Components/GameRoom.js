@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 
 import '../Styles/GameRoom.css';
@@ -20,7 +21,7 @@ class GameRoom extends React.Component {
     }
 
     render() {
-        return (
+        const GameRoomElements = (
             <div className='gameroomBackground'>
                 <Story />
                 <br />
@@ -29,6 +30,10 @@ class GameRoom extends React.Component {
                 <ClearVotesButton dataService = {this.dataService} />
             </div>
         );
+
+        const redirect = <p>Redirecting to login...</p>;
+
+        return this.dataService ? GameRoomElements : redirect;
     }
 }
 
