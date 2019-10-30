@@ -9,18 +9,18 @@ import DataService from '../Utils/DataService';
 import ClearVotesButton from './ClearVotesButton';
 
 class GameRoom extends React.Component {
-    
     constructor(props) {
         super(props);
         if (!localStorage.getItem('username')) {
             this.props.history.push('./LoginPage');
-        }else{
+        } else {
             this.username = localStorage.getItem('username');
             this.dataService = new DataService(this.username);
         }
     }
+
     render() {
-        return(
+        return (
             <div className='gameroomBackground'>
                 <Story />
                 <br />
