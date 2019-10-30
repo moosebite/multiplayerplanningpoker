@@ -1,23 +1,39 @@
 import React from 'react'
+
 import '../Styles/FibButtons.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
+
+import { Button, Container, Row, Col, ThemeProvider } from 'react-bootstrap'
 
 class FibButtons extends React.Component {
-    render() {
-        return (
-            <body className='body1'>
-            <button className="myButton" id="0">0</button>
-            <button className="myButton" id="1">1</button>
-            <button className="myButton" id="2">2</button>
-            <button className="myButton" id="3">3</button>
-            <button className="myButton" id="5">5</button>
-            <button className="myButton" id="8">8</button>
-            <button className="myButton" id="13">13</button>
-            <button className="myButton" id="21">21</button>
-            <button className="myButton" id="?">?</button>
-            <br />
-        </body>
-            )
-        }
+    numbers = [0,1,2,3,5,8,13,21,'?']
+
+    handleShowValue = (event) => {
+        this.props.dataService.updateVote(event);
+        console.log("Value is:",event, '.');
     }
-    
+
+    render() {
+            const rowButtons = this.numbers.map((number) => {
+                return (
+                    <div key={number}>
+                    <Col xs={6} sm={3} md={2} lg={1}>
+                        <ThemeProvider prefixes={{ btn: 'my-btn' }}>
+                            <Button className='fibButton' variant="outline-primary" onClick={(event) => this.handleShowValue(number)}>{number}
+                            </Button>
+                        </ThemeProvider>{' '}
+                    </Col>
+                    </div>
+                )
+            });
+            return (
+                <Container className='Container1'>
+                    <Row className='Row1'>
+                        {rowButtons}
+                    </Row>
+                </Container>
+            )
+    }
+}
+
 export default FibButtons

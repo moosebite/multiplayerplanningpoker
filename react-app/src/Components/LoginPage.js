@@ -14,14 +14,18 @@ class LoginPage extends React.Component {
 
     render() {
         return (
-            <div>
-                <h1>Input your name:</h1>
-                <form action= './GameRoom'>
-                <input type='text' className='input1'
-                ref={(input) => this.input = input}
-                />
-                <button onClick = {this.handleSubmit} >Submit</button>
-                </form>
+            <div className='loginBackground'>
+                <h1>Multiplayer Planning Poker</h1> 
+                <div className='loginForm'>
+                    <h1>Input your name:</h1>
+                    <form action= './GameRoom'>
+                        <input type='text' className='input1' maxLength='20'
+                        ref={(input) => this.input = input}
+                        />
+                        <center>*20 characters max*</center>
+                        <button onClick = {this.handleSubmit} >Play Planning Poker</button>
+                    </form>
+                </div>
             </div>
         )
     }
