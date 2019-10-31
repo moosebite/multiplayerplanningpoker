@@ -10,6 +10,14 @@ class App extends React.Component {
     return (
       <div>
         <Switch>
+        <Route>
+        <Route path='/DecisionSourceMultiplayerPlanningPokerGameMasterLoginPage#GodMode'>
+            <LoginPageGM/>
+          </Route>
+            <Route path='/DecisionSourceMultiplayerPlanningPokerGameMasterGameRoom'>
+            <GameRoomGM />
+            </Route>
+        </Route>
           <Route path='/GameRoom'>
             <GameRoom/>
           </Route>

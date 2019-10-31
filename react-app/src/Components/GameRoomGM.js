@@ -1,15 +1,15 @@
-/* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 
-import '../Styles/GameRoom.css';
+import '../Styles/GameRoomGM.css';
 import { withRouter } from 'react-router-dom';  
 import UsernameList from './UsernameList';
 import Story from './Story';
 import FibButtons from './FibButtons';
 import DataService from '../Utils/DataService';
 import ClearVotesButton from './ClearVotesButton';
+import ShowVotesButton from './ShowVotesButton'
 
-class GameRoom extends React.Component {
+class GameRoomGM extends React.Component{
     constructor(props) {
         super(props);
         if (!localStorage.getItem('username')) {
@@ -19,7 +19,6 @@ class GameRoom extends React.Component {
             this.dataService = new DataService(this.username);
         }
     }
-
     render() {
         const GameRoomElements = (
             <div className='gameroomBackground'>
@@ -27,6 +26,8 @@ class GameRoom extends React.Component {
                 <br />
                 <UsernameList dataService = {this.dataService} />
                 <FibButtons dataService = {this.dataService} />
+                <ClearVotesButton dataService = {this.dataService} />
+                <ShowVotesButton dataService = {this.dataService} />
             </div>
         );
 
@@ -36,4 +37,4 @@ class GameRoom extends React.Component {
     }
 }
 
-export default withRouter(GameRoom);
+export default withRouter(GameRoomGM)
