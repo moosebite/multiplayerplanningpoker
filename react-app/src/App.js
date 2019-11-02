@@ -4,20 +4,20 @@ import './Styles/App.css';
 
 import GameRoom from './Components/GameRoom';
 import LoginPage from './Components/LoginPage';
+import GameRoomGM from './Components/GameRoomGM';
+import LoginPageGM from './Components/LoginPageGM';
 
 class App extends React.Component {
    render () {
     return (
       <div>
         <Switch>
-        <Route>
-        <Route path='/DecisionSourceMultiplayerPlanningPokerGameMasterLoginPage#GodMode'>
+          <Route path='/DecisionSourceMultiplayerPlanningPokerGameMasterLoginPage_GodMode'>
             <LoginPageGM/>
           </Route>
-            <Route path='/DecisionSourceMultiplayerPlanningPokerGameMasterGameRoom'>
+            <Route path='/DecisionSourceMultiplayerPlanningPokerGameMasterGameRoom_GodMode'>
             <GameRoomGM />
-            </Route>
-        </Route>
+          </Route>
           <Route path='/GameRoom'>
             <GameRoom/>
           </Route>
