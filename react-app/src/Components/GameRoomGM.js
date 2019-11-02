@@ -26,12 +26,12 @@ class GameRoomGM extends React.Component{
                 <br />
                 <UsernameList dataService = {this.dataService} />
                 <FibButtons dataService = {this.dataService} />
-                <ClearVotesButton dataService = {this.dataService} />
                 <ShowVotesButton dataService = {this.dataService} />
+                <ClearVotesButton dataService = {this.dataService} />
             </div>
         );
 
-        const redirect = <p>Redirecting to login...</p>;
+        const redirect = <p>Redirecting to Game Master login page login...</p>;
 
         return this.dataService ? GameRoomElements : redirect;
     }
