@@ -30,6 +30,14 @@ class DataService {
         });
     }
 
+    userIsGM(callback) {
+        this.socket.on('userIsGM', (userMap) => {
+            const socketid = this.socket.id;
+            const gm = userMap[socketid].GM;
+            callback(gm);
+        });
+    }
+
     requestUpdate() {
         this.socket.emit('requestUpdate');
     }
@@ -40,14 +48,6 @@ class DataService {
 
     hideVotes(callback) {
         this.socket.on('hideVotes', () => callback());
-    }
-
-    userIsGM(callback) {
-        this.socket.on('userIsGM', (gmMap) => {
-            const socketid = this.socket.id;
-            const gm = gmMap[socketid];
-            callback(gm);
-        });
     }
 }
 

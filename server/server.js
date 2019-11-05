@@ -60,10 +60,8 @@ io.sockets.on('connection', (socket) => {
 
     function upDate() {
         io.emit('updateUserList', userMap);
-
-        let gmMap = {};
-        Object.keys(userMap).map((key) => { gmMap[key] = userMap[key].GM; });
-        io.emit('userIsGM', gmMap);
+        
+        io.emit('userIsGM', userMap);
 
         let allVotesIn = true;
 
