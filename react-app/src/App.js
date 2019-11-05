@@ -4,7 +4,6 @@ import './Styles/App.css';
 
 import GameRoom from './Components/GameRoom';
 import LoginPage from './Components/LoginPage';
-import GameRoomGM from './Components/GameRoomGM';
 import LoginPageGM from './Components/LoginPageGM';
 
 class App extends React.Component {
@@ -14,9 +13,6 @@ class App extends React.Component {
         <Switch>
           <Route path='/DecisionSourceMultiplayerPlanningPokerGameMasterLoginPage_GodMode'>
             <LoginPageGM/>
-          </Route>
-            <Route path='/DecisionSourceMultiplayerPlanningPokerGameMasterGameRoom_GodMode'>
-            <GameRoomGM />
           </Route>
           <Route path='/GameRoom'>
             <GameRoom/>

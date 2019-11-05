@@ -37,6 +37,14 @@ class DataService {
     hideVotes(callback) {
         this.socket.on('hideVotes', () => callback());
     }
+
+    userIsGM(callback) {
+        this.socket.on('userIsGM', (gmMap) => {
+            const socketid = this.socket.id;
+            const gm = gmMap[socketid];
+            callback(gm);
+        });
+    }
 }
 
 export default DataService;

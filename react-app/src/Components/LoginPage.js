@@ -3,7 +3,6 @@ import React from 'react'
 import '../Styles/LoginPage.css'
 
 class LoginPage extends React.Component {
-    
     handleSubmit = (event) => {
         console.log('Form submitted!'); 
         

@@ -54,6 +54,11 @@ io.sockets.on('connection', (socket) => {
 
     function upDate() {
         io.emit('updateUserList', userMap);
+
+        let gmMap = {};
+        Object.keys(userMap).map((key) => { gmMap[key] = userMap[key].GM; });
+        io.emit('userIsGM', gmMap);
+
         let allVotesIn = true;
 
         Object.keys(userMap).forEach((key) => {
