@@ -8,8 +8,9 @@ class LoginPageGM extends React.Component{
             console.log('Form submitted!'); 
             
             localStorage.setItem('username', this.input.value);
+            localStorage.setItem('GM', true);
     
-            this.props.router.push('./DecisionSourceMultiplayerPlanningPokerGameMasterGameRoom_GodMode');
+            this.props.router.push('./GameRoom');
         }
     render() {
         return(
@@ -17,7 +18,7 @@ class LoginPageGM extends React.Component{
                 <h1>Multiplayer Planning Poker</h1> 
                 <div className='loginForm'>
                     <h1>Input your name:</h1>
-                    <form action= './DecisionSourceMultiplayerPlanningPokerGameMasterGameRoom_GodMode'>
+                    <form action= './GameRoom'>
                         <input type='text' className='input1' maxLength='20'
                         ref={(input) => this.input = input}
                         />
