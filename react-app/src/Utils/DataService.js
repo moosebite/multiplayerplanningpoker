@@ -18,6 +18,10 @@ class DataService {
         this.socket.emit('addUser', username);
     }
 
+    changeGM() {
+        this.socket.emit('changeGM');
+    }
+
     updateUserList(callback) {
         this.socket.on('updateUserList', (newUserList) => {
             callback(newUserList);
