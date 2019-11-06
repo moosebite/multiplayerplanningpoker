@@ -22,6 +22,10 @@ class DataService {
         this.socket.emit('changeGM');
     }
 
+    displayVotes() {
+        this.socket.emit('displayVotes');
+    }
+
     updateUserList(callback) {
         this.socket.on('updateUserList', (newUserList) => {
             callback(newUserList);

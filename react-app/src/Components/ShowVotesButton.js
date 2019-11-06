@@ -3,7 +3,7 @@ import '../Styles/ShowVotesButton.css';
 
 class ShowVotesButton extends React.Component {
     handleSubmit = (event) => {
-      this.props.dataService.showVotes();
+      this.props.dataService.displayVotes();
       console.log("Showing votes...");
     }
 
