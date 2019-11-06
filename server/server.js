@@ -46,6 +46,10 @@ io.sockets.on('connection', (socket) => {
         io.emit('showVotes');
     });
 
+    socket.on('obscureVotes', () => {
+        io.emit('hideVotes');
+    });
+
     socket.on('disconnect', () => {
         if (userMap[socket.id]) {
             const userWasGM = userMap[socket.id].GM;

@@ -7,7 +7,7 @@ import UsernameList from './UsernameList';
 import Story from './Story';
 import FibButtons from './FibButtons';
 import DataService from '../Utils/DataService';
-import ShowVotesButton from '../Components/ShowVotesButton';
+import ToggleVotesButton from './ToggleVotesButton';
 import ClearVotesButton from '../Components/ClearVotesButton';
 
 class GameRoom extends React.Component {
@@ -52,7 +52,7 @@ class GameRoom extends React.Component {
                 <br />
                 <UsernameList dataService = {this.dataService} />
                 <FibButtons dataService = {this.dataService} />
-                <ShowVotesButton dataService = {this.dataService} />
+                <ToggleVotesButton dataService = {this.dataService} />
                 <ClearVotesButton dataService = {this.dataService} />
             </div>
         );
