@@ -31,7 +31,7 @@ class DataService {
     }
 
     userIsGM(callback) {
-        this.socket.on('userIsGM', (userMap) => {
+        this.socket.on('updateUserList', (userMap) => {
             const socketid = this.socket.id;
             const gm = userMap[socketid].GM;
             callback(gm);

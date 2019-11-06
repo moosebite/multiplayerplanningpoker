@@ -60,8 +60,6 @@ io.sockets.on('connection', (socket) => {
 
     function upDate() {
         io.emit('updateUserList', userMap);
-        
-        io.emit('userIsGM', userMap);
 
         let allVotesIn = true;
 
