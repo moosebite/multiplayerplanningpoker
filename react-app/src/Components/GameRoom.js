@@ -22,13 +22,13 @@ class GameRoom extends React.Component {
         } else {
             this.username = localStorage.getItem('username');
             this.dataService = new DataService(this.username);
-            this.dataService.userIsGM( gm => {
+            this.dataService.userIsGM((gm) => {
                 this.setState({
-                    isGM: gm
+                    isGM: gm,
                 });
             });
-            let GM = localStorage.getItem('GM');
-            if(GM){
+            const GM = localStorage.getItem('GM');
+            if (GM) {
                 this.dataService.changeGM();
                 localStorage.removeItem('GM');
             }
@@ -38,7 +38,7 @@ class GameRoom extends React.Component {
 
     render() {
         const GameRoomElements = (
-            <div className='gameroomBackground'>
+            <div className="gameroomBackground">
                 <Story />
                 <br />
                 <UsernameList dataService = {this.dataService} />
@@ -47,7 +47,7 @@ class GameRoom extends React.Component {
         );
 
         const GMGameRoomElements = (
-            <div className='gameroomBackground'>
+            <div className="gameroomBackground">
                 <Story />
                 <br />
                 <UsernameList dataService = {this.dataService} />
