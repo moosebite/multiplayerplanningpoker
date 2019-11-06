@@ -18,11 +18,31 @@ class DataService {
         this.socket.emit('addUser', username);
     }
 
+    changeGM() {
+        this.socket.emit('changeGM');
+    }
+
+    displayVotes() {
+        this.socket.emit('displayVotes');
+    }
+
+    obscureVotes() {
+        this.socket.emit('obscureVotes');
+    }
+
     updateUserList(callback) {
         this.socket.on('updateUserList', (newUserList) => {
             callback(newUserList);
             // eslint-disable-next-line no-console
             console.log('Received new userList.');
+        });
+    }
+
+    userIsGM(callback) {
+        this.socket.on('updateUserList', (userMap) => {
+            const socketid = this.socket.id;
+            const gm = userMap[socketid].GM;
+            callback(gm);
         });
     }
 

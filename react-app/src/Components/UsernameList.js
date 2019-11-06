@@ -50,7 +50,11 @@ class UsernameList extends React.Component {
                 return <li>&#10004;</li>;
             }
             else{
-                return <li>{player.vote}</li>;
+                if(player.vote){
+                    return <li>{player.vote}</li>;
+                } else {
+                    return <li><Spinner animation="border" size="sm" /></li>;
+                }
             }
         });
         return(

@@ -36,6 +36,20 @@ io.sockets.on('connection', (socket) => {
         upDate();
     });
 
+    socket.on('changeGM', () => {
+        Object.keys(userMap).forEach((key) => { userMap[key].GM = false; });
+        userMap[socket.id].GM = true;
+        upDate();
+    });
+
+    socket.on('displayVotes', () => {
+        io.emit('showVotes');
+    });
+
+    socket.on('obscureVotes', () => {
+        io.emit('hideVotes');
+    });
+
     socket.on('disconnect', () => {
         if (userMap[socket.id]) {
             const userWasGM = userMap[socket.id].GM;
@@ -54,6 +68,7 @@ io.sockets.on('connection', (socket) => {
 
     function upDate() {
         io.emit('updateUserList', userMap);
+
         let allVotesIn = true;
 
         Object.keys(userMap).forEach((key) => {
