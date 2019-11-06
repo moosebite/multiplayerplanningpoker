@@ -7,7 +7,6 @@ class LoginPage extends React.Component {
         console.log('Form submitted!'); 
         
         localStorage.setItem('username', this.input.value);
-        localStorage.setItem('GM', false);
 
         this.props.router.push('./GameRoom');
     }

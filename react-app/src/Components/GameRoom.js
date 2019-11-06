@@ -27,6 +27,11 @@ class GameRoom extends React.Component {
                     isGM: gm
                 });
             });
+            let GM = localStorage.getItem('GM');
+            if(GM){
+                this.dataService.changeGM();
+                localStorage.removeItem('GM');
+            }
             this.dataService.requestUpdate();
         }
     }

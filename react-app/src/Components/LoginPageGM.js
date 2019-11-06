@@ -3,15 +3,15 @@ import React from 'react'
 import '../Styles/LoginPageGM.css'
 
 class LoginPageGM extends React.Component{
+    handleSubmit = (event) => {
+        console.log('Form submitted!'); 
+
+        localStorage.setItem('username', this.input.value);
+        localStorage.setItem('GM', true);
     
-        handleSubmit = (event) => {
-            console.log('Form submitted!'); 
-            
-            localStorage.setItem('username', this.input.value);
-            localStorage.setItem('GM', true);
+        this.props.router.push('./GameRoom');
+    }
     
-            this.props.router.push('./GameRoom');
-        }
     render() {
         return(
             <div className='loginBackground'>
