@@ -1,18 +1,19 @@
 import React from 'react'
 
-import '../Styles/LoginPage.css'
+import '../Styles/LoginPageGM.css'
 
-class LoginPage extends React.Component {
+class LoginPageGM extends React.Component{
     handleSubmit = (event) => {
         console.log('Form submitted!'); 
-        
-        localStorage.setItem('username', this.input.value);
 
+        localStorage.setItem('username', this.input.value);
+        localStorage.setItem('GM', true);
+    
         this.props.router.push('./GameRoom');
     }
-
+    
     render() {
-        return (
+        return(
             <div className='loginBackground'>
                 <h1>Multiplayer Planning Poker</h1> 
                 <div className='loginForm'>
@@ -22,7 +23,7 @@ class LoginPage extends React.Component {
                         ref={(input) => this.input = input}
                         />
                         <center>*20 characters max*</center>
-                        <button onClick = {this.handleSubmit} >Play Planning Poker</button>
+                        <button onClick = {this.handleSubmit} >Play Planning Poker As Game Manager</button>
                     </form>
                 </div>
             </div>
@@ -30,4 +31,5 @@ class LoginPage extends React.Component {
     }
 }
 
-export default LoginPage
+
+export default LoginPageGM
