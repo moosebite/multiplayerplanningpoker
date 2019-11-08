@@ -1,13 +1,13 @@
-import React from 'react';
-import { Switch, Route } from 'react-router-dom';
-import './Styles/App.css';
+import React from "react";
+import { Switch, Route } from "react-router-dom";
+import "./Styles/App.css";
 
 import GameRoom from './Components/GameRoom';
 import LoginPage from './Components/LoginPage';
 import LoginPageGM from './Components/LoginPageGM';
 
 class App extends React.Component {
-   render () {
+  render() {
     return (
       <div>
         <Switch>
@@ -17,8 +17,8 @@ class App extends React.Component {
           <Route path='/GameRoom'>
             <GameRoom/>
           </Route>
-          <Route path='/'>
-            <LoginPage/>
+          <Route path="/">
+            <LoginPage />
           </Route>
         </Switch>
       </div>

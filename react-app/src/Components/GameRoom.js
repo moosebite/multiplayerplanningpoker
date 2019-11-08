@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-filename-extension */
-import React from 'react';
+import React from "react";
 
 import '../Styles/GameRoom.css';
 import { withRouter } from 'react-router-dom';  
@@ -35,6 +35,7 @@ class GameRoom extends React.Component {
             this.dataService.requestUpdate();
         }
     }
+  }
 
     render() {
         const GameRoomElements = (
@@ -57,7 +58,7 @@ class GameRoom extends React.Component {
             </div>
         );
 
-        const redirect = <p>Redirecting to login...</p>;
+    const redirect = <p>Redirecting to login...</p>;
 
         return this.dataService ? this.state.isGM ? GMGameRoomElements : GameRoomElements : redirect;
     }
