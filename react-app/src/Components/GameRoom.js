@@ -39,7 +39,7 @@ class GameRoom extends React.Component {
     render() {
         const GameRoomElements = (
             <div className="gameroomBackground">
-                <Story />
+                <Story dataService = {this.dataService}/>
                 <br />
                 <UsernameList dataService = {this.dataService} />
                 <FibButtons dataService = {this.dataService} />
@@ -48,7 +48,7 @@ class GameRoom extends React.Component {
 
         const GMGameRoomElements = (
             <div className="gameroomBackground">
-                <Story />
+                <Story dataService = {this.dataService}/>
                 <br />
                 <UsernameList dataService = {this.dataService} />
                 <FibButtons dataService = {this.dataService} />

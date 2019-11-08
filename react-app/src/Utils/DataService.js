@@ -30,6 +30,24 @@ class DataService {
         this.socket.emit('obscureVotes');
     }
 
+    requestUpdate() {
+        this.socket.emit('requestUpdate');
+    }
+
+    getStory() {
+        let storyBook = [];
+        storyBook.push({
+            title: "Story 1",
+            description: "Blah blah blah",
+        });
+        
+        storyBook.push({
+            title: "Story 2",
+            description: "Do the naenae",
+        });
+        return storyBook;
+    }
+
     updateUserList(callback) {
         this.socket.on('updateUserList', (newUserList) => {
             callback(newUserList);
@@ -46,9 +64,6 @@ class DataService {
         });
     }
 
-    requestUpdate() {
-        this.socket.emit('requestUpdate');
-    }
 
     showVotes(callback) {
         this.socket.on('showVotes', () => callback());
