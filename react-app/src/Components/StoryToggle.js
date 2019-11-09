@@ -1,34 +1,27 @@
 import React from "react";
-import "../Styles/UsernameList.css";
+import "../Styles/Story.css";
 
 class StoryToggle extends React.Component {
   state = {
-    storyQueue: ["apple ", "banana ", "grape "], //This eventually will hold the story queue
     showStoryQueue: false
   };
 
   constructor(props) {
     super(props);
-    //Here, eventually, can have the queue component be created with items pulled in through dataservices, which is used as a prop.
 
     this.storyList = this.props.dataService.getStory(); //Successfully makes variable to hold the story queue. Doesn't need to be a state
 
-    this.toggleQueue = this.toggleQueue.bind(this); //May not be necessary?
+    this.toggleQueue = this.toggleQueue.bind(this); //This is necessary
   }
 
   toggleQueue() {
-    //console.log("beep");
-
-    //Maybe put the logic in here to update the storyQueue contents from the server here.
+    //Sets the state for if the story queue needs to be visible or not
     this.setState({
       showStoryQueue: !this.state.showStoryQueue
     });
   }
 
   render() {
-    //If showStoryQueue is true, can use similar logic to map the stories from the server and display them in the new element.
-    console.log(this.storyList);
-
     if (this.state.showStoryQueue) {
       this.storyDisplay = (
         <div>
@@ -58,12 +51,14 @@ class StoryToggle extends React.Component {
   }
 }
 
+//Simple story button creation
 const Story = props => {
   return (
-    <div className="Story">
-      <p>{props.title}</p>
-      <p>{props.body}</p>
-    </div>
+    <button className="StoryButton">
+      {props.title}
+      <br />
+      {props.body}
+    </button>
   );
 };
 

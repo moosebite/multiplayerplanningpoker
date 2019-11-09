@@ -1,29 +1,29 @@
 .fibButton {
-    background-color : rgb(255, 255, 255);
-    color: black;
-    margin-bottom: 10px;
+  background-color: rgb(255, 255, 255);
+  color: black;
+  margin-bottom: 10px;
 
-    width: 7vw;
-    min-width: 80px;
-    max-width: 130px;
+  width: 7vw;
+  min-width: 80px;
+  max-width: 130px;
 
-    height: 10vw;
-    min-height: 120px;
-    max-height: 190px;
+  height: 10vw;
+  min-height: 120px;
+  max-height: 190px;
 
-    font-size: xx-large;
-    position: -webkit-sticky;
-    text-align: center;
+  font-size: xx-large;
+  position: -webkit-sticky;
+  text-align: center;
 }
 
 .Container1 {
-    position: absolute;
-    position: -webkit-sticky;
-    bottom: 0%;
+  position: absolute;
+  position: -webkit-sticky;
+  bottom: 0%;
 }
 
 .Row1 {
-    justify-content: left;
-    width: 90vw;
-    max-width: 1800px;
+  justify-content: left;
+  width: 90vw;
+  max-width: 1800px;
 }
