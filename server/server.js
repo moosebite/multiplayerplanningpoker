@@ -84,6 +84,9 @@ io.sockets.on("connection", socket => {
     io.emit("updateUserList", userMap);
 
     let allVotesIn = true;
+    //Put something in here to show active story?
+    io.emit("updateActiveStory", activeStory);
+    //Maybe make it similar to updateUserList
 
     Object.keys(userMap).forEach(key => {
       if (userMap[key].vote === null) {

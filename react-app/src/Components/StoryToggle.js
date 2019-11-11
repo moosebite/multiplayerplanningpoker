@@ -29,6 +29,7 @@ class StoryToggle extends React.Component {
     this.props.dataService.updateStory(event);
     console.log("testing select");
     console.log(JSON.stringify(event)); //Stringifyies the object and outputs it to the console
+    this.props.dataService.requestUpdate();
   };
 
   //This works

@@ -52,6 +52,13 @@ class DataService {
     return storyBook;
   }
 
+  updateActiveStory(callback) {
+    this.socket.on("updateActiveStory", newActiveStory => {
+      callback(newActiveStory);
+      console.log("Received new active story");
+    });
+  }
+
   updateUserList(callback) {
     this.socket.on("updateUserList", newUserList => {
       callback(newUserList);
