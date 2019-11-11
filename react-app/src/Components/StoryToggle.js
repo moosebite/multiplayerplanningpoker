@@ -26,6 +26,7 @@ class StoryToggle extends React.Component {
 
   handleStorySelect = event => {
     //Gives this handle access to the story for each button and its attributes
+    this.props.dataService.updateStory(event);
     console.log("testing select");
     console.log(JSON.stringify(event)); //Stringifyies the object and outputs it to the console
   };

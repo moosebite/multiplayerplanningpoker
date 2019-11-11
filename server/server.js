@@ -27,6 +27,11 @@ io.sockets.on("connection", socket => {
     }
   });
 
+  socket.on("updateStory", story => {
+    activeStory = story;
+    console.log(JSON.stringify(activeStory));
+  });
+
   socket.on("showStory", selectedStory => {
     //Do something here to bring in the selected story to the backend
   });

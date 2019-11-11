@@ -1,77 +1,80 @@
-import io from 'socket.io-client';
+import io from "socket.io-client";
 
 class DataService {
-    constructor(username) {
-        this.socket = io('http://localhost:8080');
-        this.addUser(username);
-    }
+  constructor(username) {
+    this.socket = io("http://localhost:8080");
+    this.addUser(username);
+  }
 
-    updateVote(vote) {
-        this.socket.emit('updateVote', vote);
-    }
+  updateVote(vote) {
+    this.socket.emit("updateVote", vote);
+  }
 
-    clearVotes() {
-        this.socket.emit('clearVotes');
-    }
+  updateStory(story) {
+    this.socket.emit("updateStory", story);
+  }
 
-    addUser(username) {
-        this.socket.emit('addUser', username);
-    }
+  clearVotes() {
+    this.socket.emit("clearVotes");
+  }
 
-    changeGM() {
-        this.socket.emit('changeGM');
-    }
+  addUser(username) {
+    this.socket.emit("addUser", username);
+  }
 
-    displayVotes() {
-        this.socket.emit('displayVotes');
-    }
+  changeGM() {
+    this.socket.emit("changeGM");
+  }
 
-    obscureVotes() {
-        this.socket.emit('obscureVotes');
-    }
+  displayVotes() {
+    this.socket.emit("displayVotes");
+  }
 
-    requestUpdate() {
-        this.socket.emit('requestUpdate');
-    }
+  obscureVotes() {
+    this.socket.emit("obscureVotes");
+  }
 
-    getStory() {
-        let storyBook = [];
-        storyBook.push({
-            title: "Story 1",
-            description: "Blah blah blah",
-        });
-        
-        storyBook.push({
-            title: "Story 2",
-            description: "Do the naenae",
-        });
-        return storyBook;
-    }
+  requestUpdate() {
+    this.socket.emit("requestUpdate");
+  }
 
-    updateUserList(callback) {
-        this.socket.on('updateUserList', (newUserList) => {
-            callback(newUserList);
-            // eslint-disable-next-line no-console
-            console.log('Received new userList.');
-        });
-    }
+  getStory() {
+    let storyBook = [];
+    storyBook.push({
+      title: "Story 1",
+      description: "Blah blah blah"
+    });
 
-    userIsGM(callback) {
-        this.socket.on('updateUserList', (userMap) => {
-            const socketid = this.socket.id;
-            const gm = userMap[socketid].GM;
-            callback(gm);
-        });
-    }
+    storyBook.push({
+      title: "Story 2",
+      description: "Do the naenae"
+    });
+    return storyBook;
+  }
 
+  updateUserList(callback) {
+    this.socket.on("updateUserList", newUserList => {
+      callback(newUserList);
+      // eslint-disable-next-line no-console
+      console.log("Received new userList.");
+    });
+  }
 
-    showVotes(callback) {
-        this.socket.on('showVotes', () => callback());
-    }
+  userIsGM(callback) {
+    this.socket.on("updateUserList", userMap => {
+      const socketid = this.socket.id;
+      const gm = userMap[socketid].GM;
+      callback(gm);
+    });
+  }
 
-    hideVotes(callback) {
-        this.socket.on('hideVotes', () => callback());
-    }
+  showVotes(callback) {
+    this.socket.on("showVotes", () => callback());
+  }
+
+  hideVotes(callback) {
+    this.socket.on("hideVotes", () => callback());
+  }
 }
 
 export default DataService;
