@@ -4,4 +4,14 @@
 
 .StoryButton {
   color: black;
+  width: 200px;
+  
 }
+
+.StoryButton:hover{
+  background-color: blue;
+  color: white;
+}
+
+
+

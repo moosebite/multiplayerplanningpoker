@@ -1,16 +1,15 @@
 import React from "react";
 import "../Styles/Story.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import { Card } from 'react-bootstrap'
+
 
 class StoryToggle extends React.Component {
-  /*
-  state = {
-    showStoryQueue: false
-  };
-  */
+
 
   constructor(props) {
     super(props);
-
     this.storyList = this.props.dataService.getStory(); //Successfully makes variable to hold the story queue. Doesn't need to be a state
 
     //This binding is necessary
@@ -19,15 +18,6 @@ class StoryToggle extends React.Component {
     //this.toggleQueue = this.toggleQueue.bind(this);
   }
 
-  //May be moved to GameRoom.js
-  /*
-  toggleQueue() {
-    //Sets the state for if the story queue needs to be visible or not
-    this.setState({
-      showStoryQueue: !this.state.showStoryQueue
-    });
-  }
-  */
 
   handleStorySelect = event => {
     //Gives this handle access to the story for each button and its attributes
@@ -39,18 +29,20 @@ class StoryToggle extends React.Component {
   //This works
   makeStoryButton(props) {
     //'Event' is important. Makes the button do it on click for the specific button
-    return (
-      <div>
-        <button
-          className="StoryButton"
-          onClick={event => this.handleStorySelect(props)}
-        >
-          {props.title}
-          <br />
-          {props.description}
-        </button>
-      </div>
+    
+    return(
+      <a onClick={event => this.handleStorySelect(props)}>
+        <Card className='StoryButton'>
+          <Card.Body>
+            <Card.Title>{props.title}</Card.Title>
+            <Card.Text>{props.description}</Card.Text>
+          </Card.Body>
+        </Card>
+      </a>
     );
+    
+    //
+  
   }
 
   render() {
@@ -62,17 +54,5 @@ class StoryToggle extends React.Component {
   }
 }
 
-//Simple story button creation
-/*
-const Story = props => {
-  return (
-    <button className="StoryButton" onClick={console.log("test")}>
-      {props.title}
-      <br />
-      {props.body}
-    </button>
-  );
-};
-*/
 
 export default StoryToggle;
