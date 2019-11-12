@@ -32,7 +32,12 @@ class Story extends React.Component {
           </p1>
         </div>
       );
-    } else return <h1>Story here</h1>;
+    } else
+      return (
+        <h1>
+          <font color="white">Waiting For Story Selection...</font>
+        </h1>
+      );
   }
 }
 
