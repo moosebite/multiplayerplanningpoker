@@ -20,8 +20,6 @@ class Story extends React.Component {
     });
 
     this.props.dataService.requestUpdate();
-    //this.storyMap = this.props.dataService.getStory();
-    //console.log(this.storyMap[0].description);
   }
 
   render() {

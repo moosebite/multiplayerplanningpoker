@@ -18,5 +18,23 @@
 }
 .StoryButton {
   color: black;
-  border-radius: 4px;
+  width: 200px;
+}
+
+.card-container {
+  margin: 20px 30px;
+  display: grid;
+  grid-gap: 10px;
+  /* 1fr is one fractional unit. */
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-rows: repeat(1fr);
+}
+
+.card-item {
+  color: black;
+}
+
+.card-item:hover {
+  background-color: blue;
+  color: white;
 }

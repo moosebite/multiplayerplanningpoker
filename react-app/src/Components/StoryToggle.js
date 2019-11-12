@@ -1,11 +1,14 @@
 import React from "react";
 import "../Styles/Story.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import { Card } from 'react-bootstrap'
+
 
 class StoryToggle extends React.Component {
 
   constructor(props) {
     super(props);
-
     this.storyList = this.props.dataService.getStory(); //Successfully makes variable to hold the story queue. Doesn't need to be a state
 
     //This binding is necessary
@@ -23,22 +26,25 @@ class StoryToggle extends React.Component {
 
   //This works
   makeStoryButton(props) {
-    //'Event' is important. Makes the button do it on click.
-    return (
-      <button
-        className="StoryButton"
-        onClick={event => this.handleStorySelect(props)}
-      >
-        {props.title}
-        <br />
-        {props.description}
-      </button>
+    //'Event' is important. Makes the button do it on click for the specific button
+    
+    return(
+      <a onClick={event => this.handleStorySelect(props)}>
+        <Card className= 'card-item'>
+          <Card.Body>
+            <Card.Title>{props.title}</Card.Title>
+            <Card.Text>{props.description}</Card.Text>
+          </Card.Body>
+        </Card>
+      </a>
     );
+    //
+  
   }
 
   render() {
     this.storyDisplay = (
-      <div>{this.storyList.map(story => this.makeStoryButton(story))}</div>
+      <div className='card-container'>{this.storyList.map(story => this.makeStoryButton(story))}</div>
     );
 
     return this.storyDisplay;
