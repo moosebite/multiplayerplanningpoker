@@ -7,7 +7,7 @@ const PORT = 8080;
 // the object's key is the socket.id
 // eslint-disable-next-line prefer-const
 let userMap = {};
-var activeStory;
+let activeStory;
 
 // on Connection
 io.sockets.on("connection", socket => {
@@ -30,10 +30,6 @@ io.sockets.on("connection", socket => {
   socket.on("updateStory", story => {
     activeStory = story;
     console.log(JSON.stringify(activeStory));
-  });
-
-  socket.on("showStory", selectedStory => {
-    //Do something here to bring in the selected story to the backend
   });
 
   socket.on("clearVotes", () => {
@@ -82,11 +78,11 @@ io.sockets.on("connection", socket => {
 
   function upDate() {
     io.emit("updateUserList", userMap);
-
-    let allVotesIn = true;
     //Put something in here to show active story?
     io.emit("updateActiveStory", activeStory);
     //Maybe make it similar to updateUserList
+
+    let allVotesIn = true;
 
     Object.keys(userMap).forEach(key => {
       if (userMap[key].vote === null) {

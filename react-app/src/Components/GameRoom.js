@@ -50,7 +50,6 @@ class GameRoom extends React.Component {
     const GameRoomElements = (
       <div className="gameroomBackground">
         <Story dataService={this.dataService} />
-        <br />
         <UsernameList dataService={this.dataService} />
         <FibButtons dataService={this.dataService} />
       </div>
@@ -59,20 +58,19 @@ class GameRoom extends React.Component {
     if (this.state.showStoryQueue) {
       this.GMGameRoomElements = (
         <div className="gameroomBackground">
-          <br />
           <StoryToggle dataService={this.dataService} />
           <UsernameList dataService={this.dataService} />
-          <button onClick={this.toggleQueue}>Story Queue</button>
+          <button className="StoryQueue" onClick={this.toggleQueue}>Story toggle</button>
         </div>
       );
     } else {
       this.GMGameRoomElements = (
         <div className="gameroomBackground">
-          <br />
+          <Story dataService={this.dataService} />
           <UsernameList dataService={this.dataService} />
           <FibButtons dataService={this.dataService} />
           <ToggleVotesButton dataService={this.dataService} />
-          <button onClick={this.toggleQueue}>Story Queue</button>
+          <button className="StoryQueue" onClick={this.toggleQueue}>Story toggle</button>
           <ClearVotesButton dataService={this.dataService} />
         </div>
       );

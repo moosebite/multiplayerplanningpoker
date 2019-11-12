@@ -1,7 +1,22 @@
 .Story {
-  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  margin-left: 15px;
+  margin-top: 15px;
+  width: 75vw;
+  height: 40vw;
+  color: black;
+  background: white;
 }
-
+.StoryQueue {
+  border-radius: 4px;
+  position: fixed;
+  bottom: -8px;
+  right: 285px;
+  padding: 10px 20px;
+  border-color: #46b8da;
+}
 .StoryButton {
   color: black;
+  border-radius: 4px;
 }

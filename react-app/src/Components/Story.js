@@ -27,11 +27,11 @@ class Story extends React.Component {
   render() {
     if (this.state.activeStory) {
       return (
-        <div>
-          <h1 className="Story">{this.state.activeStory.title}</h1>
-          <h2 className="Story">
+        <div className="Story">
+          <h1>{this.state.activeStory.title}</h1>
+          <p1>
             <center>{this.state.activeStory.description}</center>
-          </h2>
+          </p1>
         </div>
       );
     } else return <h1>Story here</h1>;
