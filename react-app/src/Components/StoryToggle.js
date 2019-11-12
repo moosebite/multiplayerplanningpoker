@@ -32,7 +32,7 @@ class StoryToggle extends React.Component {
     
     return(
       <a onClick={event => this.handleStorySelect(props)}>
-        <Card className='StoryButton'>
+        <Card className= 'card-item'>
           <Card.Body>
             <Card.Title>{props.title}</Card.Title>
             <Card.Text>{props.description}</Card.Text>
@@ -40,14 +40,13 @@ class StoryToggle extends React.Component {
         </Card>
       </a>
     );
-    
     //
   
   }
 
   render() {
     this.storyDisplay = (
-      <div>{this.storyList.map(story => this.makeStoryButton(story))}</div>
+      <div className='card-container'>{this.storyList.map(story => this.makeStoryButton(story))}</div>
     );
 
     return this.storyDisplay;
