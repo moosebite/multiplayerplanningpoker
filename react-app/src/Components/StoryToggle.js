@@ -17,6 +17,7 @@ class StoryToggle extends React.Component {
     this.toggleQueue = this.toggleQueue.bind(this);
   }
 
+  //May be moved to GameRoom.js
   toggleQueue() {
     //Sets the state for if the story queue needs to be visible or not
     this.setState({
@@ -27,14 +28,13 @@ class StoryToggle extends React.Component {
   handleStorySelect = event => {
     //Gives this handle access to the story for each button and its attributes
     this.props.dataService.updateStory(event);
-    console.log("testing select");
-    console.log(JSON.stringify(event)); //Stringifyies the object and outputs it to the console
+
     this.props.dataService.requestUpdate();
   };
 
   //This works
   makeStoryButton(props) {
-    //'Event' is important. Makes the button doe it on click.
+    //'Event' is important. Makes the button do it on click.
     return (
       <button
         className="StoryButton"
@@ -48,23 +48,10 @@ class StoryToggle extends React.Component {
   }
 
   render() {
-    if (this.state.showStoryQueue) {
-      this.storyDisplay = (
-        <div>
-          {this.storyList.map(story => this.makeStoryButton(story))}
-          <button onClick={this.toggleQueue}>Story Queue</button>
-        </div>
-      );
-    } else {
-      this.storyDisplay = (
-        <div>
-          <font color="white">
-            <center>Click the button for the story queue</center>
-          </font>
-          <button onClick={this.toggleQueue}>Story Queue</button>
-        </div>
-      );
-    }
+    this.storyDisplay = (
+      <div>{this.storyList.map(story => this.makeStoryButton(story))}</div>
+    );
+
     return this.storyDisplay;
   }
 }
