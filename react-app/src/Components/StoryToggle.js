@@ -2,9 +2,11 @@ import React from "react";
 import "../Styles/Story.css";
 
 class StoryToggle extends React.Component {
+  /*
   state = {
     showStoryQueue: false
   };
+  */
 
   constructor(props) {
     super(props);
@@ -14,16 +16,18 @@ class StoryToggle extends React.Component {
     //This binding is necessary
     this.handleStorySelect = this.handleStorySelect.bind(this);
     this.makeStoryButton = this.makeStoryButton.bind(this);
-    this.toggleQueue = this.toggleQueue.bind(this);
+    //this.toggleQueue = this.toggleQueue.bind(this);
   }
 
   //May be moved to GameRoom.js
+  /*
   toggleQueue() {
     //Sets the state for if the story queue needs to be visible or not
     this.setState({
       showStoryQueue: !this.state.showStoryQueue
     });
   }
+  */
 
   handleStorySelect = event => {
     //Gives this handle access to the story for each button and its attributes
