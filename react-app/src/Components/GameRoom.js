@@ -69,6 +69,7 @@ class GameRoom extends React.Component {
       this.GMGameRoomElements = (
         <div className="gameroomBackground">
           <br />
+          <Story dataService={this.dataService} />
           <UsernameList dataService={this.dataService} />
           <FibButtons dataService={this.dataService} />
           <ToggleVotesButton dataService={this.dataService} />

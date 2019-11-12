@@ -38,16 +38,18 @@ class StoryToggle extends React.Component {
 
   //This works
   makeStoryButton(props) {
-    //'Event' is important. Makes the button do it on click.
+    //'Event' is important. Makes the button do it on click for the specific button
     return (
-      <button
-        className="StoryButton"
-        onClick={event => this.handleStorySelect(props)}
-      >
-        {props.title}
-        <br />
-        {props.description}
-      </button>
+      <div>
+        <button
+          className="StoryButton"
+          onClick={event => this.handleStorySelect(props)}
+        >
+          {props.title}
+          <br />
+          {props.description}
+        </button>
+      </div>
     );
   }
 
