@@ -28,7 +28,7 @@ class Story extends React.Component {
         <div className="Story">
           <h1>{this.state.activeStory.title}</h1>
           <p1>
-            <center>{this.state.activeStory.description}</center>
+            <center className ="StoryDescription">{this.state.activeStory.description}</center>
           </p1>
         </div>
       );

@@ -16,6 +16,12 @@
   padding: 10px 20px;
   border-color: #46b8da;
 }
+
+.StoryDescription
+{
+  padding: 10px;
+}
+
 .StoryButton {
   color: black;
   width: 200px;
