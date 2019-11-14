@@ -9,17 +9,19 @@ class UsernameList extends React.Component {
     
     state = { 
         playerList: {},
-        showVotes: false
+        showVotes: false,
+        username: ""
     }
 
 
     constructor(props){
         super(props);
-        this.props.dataService.updateUserList( (updatedPlayerList) => {
+        this.props.dataService.updateUserList( (updatedPlayerList, newusername) => {
             this.setState({
-               playerList: updatedPlayerList
+               playerList: updatedPlayerList,
+               username: newusername
             });
-            console.table(this.state.playerList);
+            console.table(this.state.username);
         });
 
         this.props.dataService.hideVotes(() => {
@@ -41,6 +43,9 @@ class UsernameList extends React.Component {
     render() {
         const playerListElements = Object.values(this.state.playerList).map(player => {
 
+            if(player.username == this.state.username) {
+                return <li className="boldName">{player.username}</li>;
+            }
             return <li>{player.username}</li>;
         });
         const voteStatus = Object.values(this.state.playerList).map(player => {

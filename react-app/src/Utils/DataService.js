@@ -52,7 +52,8 @@ class DataService {
 
   updateUserList(callback) {
     this.socket.on("updateUserList", newUserList => {
-      callback(newUserList);
+      const socketid = this.socket.id;
+      callback(newUserList, newUserList[socketid].username);
       // eslint-disable-next-line no-console
       console.log("Received new userList.");
     });

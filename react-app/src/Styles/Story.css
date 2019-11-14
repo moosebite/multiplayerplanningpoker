@@ -25,6 +25,9 @@
   margin: 20px 30px;
   display: grid;
   grid-gap: 10px;
+  background: wheat;
+  width: 75%;
+  height: 95%;
   /* 1fr is one fractional unit. */
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   grid-template-rows: repeat(1fr);

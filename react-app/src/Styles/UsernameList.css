@@ -4,8 +4,11 @@
   right: 0px;
   width: 20vw;
   min-width: 240px;
+  max-height: 90%;
   margin-left: auto;
   
+  overflow: auto;
+
   background-color : rgb(255, 255, 255);
   
   display: flex;
@@ -30,4 +33,8 @@
   list-style: none;
   font-size: large;
   padding: 0;
+}
+
+.boldName {
+  font-weight: bold;
 }
