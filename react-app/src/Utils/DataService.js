@@ -1,4 +1,5 @@
 import io from "socket.io-client";
+import mockStories from "./MockStories";
 
 class DataService {
   constructor(username) {
@@ -39,17 +40,7 @@ class DataService {
   }
 
   getStory() {
-    let storyBook = [];
-    storyBook.push({
-      title: "Story 1",
-      description: "Blah blah blah"
-    });
-
-    storyBook.push({
-      title: "Story 2",
-      description: "Do the naenae"
-    });
-    return storyBook;
+    return mockStories;
   }
 
   updateActiveStory(callback) {
